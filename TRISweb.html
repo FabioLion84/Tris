@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TRIS — Tutto ciò che serve per vincere nel retail</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+
+/* ════════════════════════════════════════════
+   TRIS — Retail Excellence Partner
+   Design: Prophet-inspired editorial minimalism
+   Palette: TRIS brand (pearl · navy · violet · blue)
+   Type: Clash Display (headings) · DM Sans (body)
+════════════════════════════════════════════ */
+
+:root {
+  /* TRIS brand palette */
+  --pearl:      #FAFAF7;
+  --pearl2:     #F3F2ED;
+  --navy:       #0F1623;
+  --navy2:      #192130;
+  --violet:     #5C3D8F;
+  --violet2:    #7B5AB8;
+  --violet3:    #EBE4F7;
+  --blue:       #2E63A8;
+  --blue2:      #4A82CE;
+  --blue3:      #DCE9F8;
+  --muted:      #6C6860;
+  --muted2:     #9A9490;
+  --border:     rgba(15,22,35,.09);
+  --border-lt:  rgba(255,255,255,.08);
+  --white:      #FFFFFF;
+
+  /* spacing system */
+  --s1: .5rem;
+  --s2: 1rem;
+  --s3: 1.5rem;
+  --s4: 2rem;
+  --s6: 3rem;
+  --s8: 4rem;
+  --s12: 6rem;
+  --s16: 8rem;
+
+  /* max widths */
+  --mw: 1280px;
+  --mw-narrow: 900px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--pearl);
+  color: var(--navy);
+  overflow-x: hidden;
+  min-width: 320px;
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* subtle grain texture overlay */
+body::after {
+  content: '';
+  position: fixed; inset: 0; z-index: 9999;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  opacity: .022;
+}
+
+/* ── TYPE SYSTEM ── */
+.t-display {
+  font-family: 'Clash Display', sans-serif;
+  letter-spacing: -.03em;
+  line-height: 1.0;
+}
+.t-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .68rem;
+  font-weight: 500;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ── LAYOUT ── */
+.wrap { max-width: var(--mw); margin: 0 auto; padding: 0 var(--s8); }
+.wrap-narrow { max-width: var(--mw-narrow); margin: 0 auto; padding: 0 var(--s8); }
+
+/* ════════════════════════════════════════════
+   NAV
+════════════════════════════════════════════ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+  background: rgba(247,244,238,.93);
+  backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  max-width: var(--mw); margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 var(--s8); height: 74px;
+}
+
+/* LOGO — Variante 03 */
+.logo { display: inline-flex; align-items: center; text-decoration: none; gap: 0; flex-shrink: 0; }
+.logo-t {
+  font-family: 'Clash Display', sans-serif;
+  font-weight: 700; font-size: 2.3rem;
+  letter-spacing: -.04em; color: var(--navy); line-height: 1;
+}
+.logo-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue2), var(--violet2));
+  margin-left: 2px; margin-bottom: 2px;
+  flex-shrink: 0; align-self: flex-end;
+}
+.logo-sep {
+  width: 1px; height: 32px;
+  background: var(--border); margin: 0 9px; flex-shrink: 0;
+}
+.logo-stack { display: flex; flex-direction: column; gap: 0; align-self: center; }
+.logo-stack span {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .58rem; font-weight: 500;
+  letter-spacing: .16em; text-transform: uppercase;
+  line-height: 1.55; color: var(--muted2);
+}
+.logo-stack span:first-child { color: var(--violet); }
+
+.nav-links { display: flex; align-items: center; gap: 0; list-style: none; }
+.nav-links a {
+  font-size: .82rem; font-weight: 400; color: var(--muted);
+  text-decoration: none; padding: .4rem .9rem; border-radius: 2rem;
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--navy); }
+
+.nav-cta {
+  font-size: .82rem; font-weight: 500; color: var(--white) !important;
+  background: var(--navy); padding: .48rem 1.3rem !important;
+  border-radius: 2rem; transition: background .2s !important;
+}
+.nav-cta:hover { background: var(--violet) !important; }
+
+.nav-r { display: flex; align-items: center; gap: var(--s2); }
+.lang-tog { display: flex; border: 1px solid var(--border); border-radius: 2rem; overflow: hidden; }
+.lang-btn {
+  padding: .26rem .72rem;
+  font-family: 'DM Sans', sans-serif; font-size: .68rem; font-weight: 500;
+  background: transparent; border: none; cursor: pointer;
+  color: var(--muted); letter-spacing: .07em; text-transform: uppercase;
+  transition: background .15s, color .15s;
+}
+.lang-btn.active { background: var(--navy); color: var(--white); }
+
+.ham { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+.ham span { display: block; width: 22px; height: 1.5px; background: var(--navy); transition: all .3s; }
+
+/* mobile menu */
+.mob { display: none; position: fixed; top: 74px; left: 0; right: 0; z-index: 499;
+  background: var(--pearl); border-bottom: 1px solid var(--border);
+  padding: var(--s4) var(--s8); flex-direction: column; gap: var(--s1); }
+.mob.open { display: flex; }
+.mob a { font-size: 1rem; font-weight: 400; color: var(--navy); text-decoration: none;
+  padding: .65rem 0; border-bottom: 1px solid var(--border); }
+.mob a:last-child { border: none; margin-top: var(--s2);
+  background: var(--navy); color: var(--white);
+  text-align: center; padding: .85rem; border-radius: 2rem; font-weight: 500; }
+
+/* ════════════════════════════════════════════
+   HERO
+════════════════════════════════════════════ */
+#hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding-top: 68px; position: relative; overflow: hidden;
+}
+
+
+
+/* wave canvas background */
+.hero-geo {
+  position: absolute; inset: 0; z-index: 0;
+  pointer-events: none; overflow: hidden;
+}
+#heroWave {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  touch-action: none;
+}
+
+.hero-content {
+  position: relative; z-index: 1;
+  max-width: var(--mw); margin: 0 auto; width: 100%;
+  padding: var(--s16) var(--s8) var(--s12);
+}
+
+.hero-label {
+  display: inline-flex; align-items: center; gap: var(--s2);
+  margin-bottom: var(--s6);
+}
+.hero-label::before {
+  content: ''; width: 32px; height: 1px; background: var(--violet);
+}
+.hero-label span {
+  font-size: .68rem; font-weight: 500; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--violet);
+}
+
+h1 {
+  font-family: 'Clash Display', sans-serif;
+  font-size: clamp(2.4rem, 4.8vw, 5.6rem);
+  font-weight: 700; line-height: .97; letter-spacing: -.04em;
+  max-width: 900px; margin-bottom: var(--s6);
+  color: var(--navy);
+}
+h1 em {
+  font-style: normal;
+  background: linear-gradient(135deg, var(--violet), var(--blue2));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-sub {
+  font-size: 1.1rem; font-weight: 300; color: var(--muted);
+  line-height: 1.7; max-width: 560px; margin-bottom: var(--s8);
+}
+
+.hero-actions { display: flex; gap: var(--s2); flex-wrap: wrap; }
+
+.btn-primary {
+  display: inline-flex; align-items: center; gap: .4rem;
+  background: var(--navy); color: var(--white);
+  padding: .88rem 2rem; border-radius: 3rem;
+  font-family: 'DM Sans', sans-serif; font-size: .9rem; font-weight: 500;
+  text-decoration: none; border: 1.5px solid var(--navy);
+  transition: background .2s, border-color .2s, transform .2s;
+  white-space: nowrap;
+}
+.btn-primary:hover { background: var(--violet); border-color: var(--violet); transform: translateY(-2px); }
+
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: .4rem;
+  background: transparent; color: var(--navy);
+  padding: .88rem 2rem; border-radius: 3rem;
+  font-family: 'DM Sans', sans-serif; font-size: .9rem; font-weight: 500;
+  text-decoration: none; border: 1.5px solid var(--border);
+  transition: border-color .2s, color .2s, transform .2s;
+  white-space: nowrap;
+}
+.btn-ghost:hover { border-color: var(--violet); color: var(--violet); transform: translateY(-2px); }
+
+/* hero bottom bar */
+.hero-bar {
+  border-top: 1px solid var(--border);
+  max-width: var(--mw); margin: 0 auto; width: 100%;
+  padding: var(--s4) var(--s8);
+  display: flex; align-items: center; gap: var(--s8);
+  position: relative; z-index: 1;
+}
+.hero-bar-item { display: flex; flex-direction: column; gap: 4px; }
+.hero-bar-num {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 2rem; font-weight: 700; letter-spacing: -.04em;
+  background: linear-gradient(135deg, var(--violet), var(--blue2));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text; line-height: 1;
+}
+.hero-bar-lbl { font-size: .72rem; font-weight: 400; color: var(--muted); }
+.hero-bar-div { width: 1px; height: 36px; background: var(--border); flex-shrink: 0; }
+
+
+
+/* ════════════════════════════════════════════
+   SHARED SECTION STYLES
+════════════════════════════════════════════ */
+.sec { position: relative; z-index: 1; }
+.sec-pad { padding: var(--s16) 0; }
+.sec-pad-sm { padding: var(--s12) 0; }
+
+.sec-label {
+  display: flex; align-items: center; gap: var(--s2);
+  margin-bottom: var(--s6);
+}
+.sec-label::before { content: ''; width: 24px; height: 1px; background: var(--violet); flex-shrink: 0; }
+
+.sec-h2 {
+  font-family: 'Clash Display', sans-serif;
+  font-size: clamp(2rem, 4vw, 3.8rem);
+  font-weight: 700; line-height: 1.02; letter-spacing: -.035em;
+  color: var(--navy);
+}
+.sec-h2 em {
+  font-style: normal;
+  background: linear-gradient(135deg, var(--violet), var(--blue2));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.sec-h2.light { color: var(--white); }
+.sec-h2.light em { background: linear-gradient(135deg, var(--violet2), var(--blue2)); }
+
+.sec-body {
+  font-size: 1.05rem; font-weight: 300; color: var(--muted);
+  line-height: 1.75; max-width: 520px;
+}
+.sec-body.light { color: rgba(255,255,255,.5); }
+
+/* ════════════════════════════════════════════
+   SERVICES — large typographic list
+════════════════════════════════════════════ */
+#servizi { background: var(--pearl); }
+
+.svc-header {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: var(--s8); align-items: end;
+  margin-bottom: var(--s12);
+}
+
+.svc-list { list-style: none; }
+
+.svc-item {
+  display: grid;
+  grid-template-columns: 80px 1fr 180px;
+  align-items: baseline;
+  gap: var(--s4);
+  padding: var(--s6) 0;
+  border-top: 1px solid var(--border);
+  transition: padding-left .25s;
+  cursor: default;
+}
+.svc-item:last-child { border-bottom: 1px solid var(--border); }
+.svc-item:hover { padding-left: var(--s3); }
+
+.svc-num {
+  font-family: 'Clash Display', sans-serif;
+  font-size: .85rem; font-weight: 600; color: var(--muted2);
+  letter-spacing: .06em; align-self: center;
+  transition: color .25s;
+}
+.svc-item:hover .svc-num { color: var(--violet); }
+
+.svc-name {
+  font-family: 'Clash Display', sans-serif;
+  font-size: clamp(1.4rem, 2.8vw, 2.4rem);
+  font-weight: 600; letter-spacing: -.025em; color: var(--navy);
+  line-height: 1.1; transition: color .25s;
+}
+.svc-item:hover .svc-name { color: var(--violet); }
+
+.svc-desc {
+  font-size: .85rem; font-weight: 300; color: var(--muted);
+  line-height: 1.6; align-self: center;
+}
+
+/* ════════════════════════════════════════════
+   WHY — dark section, 3 pillars
+════════════════════════════════════════════ */
+#why { background: var(--navy); }
+
+.why-header {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: var(--s8); align-items: end;
+  padding-bottom: var(--s12);
+  border-bottom: 1px solid var(--border-lt);
+}
+
+.why-label::before { background: var(--violet2); }
+
+.why-pillars {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 0;
+  margin-top: 0;
+}
+
+.why-pillar {
+  padding: var(--s8) var(--s6);
+  border-right: 1px solid var(--border-lt);
+  border-top: 1px solid var(--border-lt);
+  transition: background .25s;
+}
+.why-pillar:last-child { border-right: none; }
+.why-pillar:hover { background: rgba(255,255,255,.03); }
+
+.why-p-num {
+  font-family: 'Clash Display', sans-serif;
+  font-size: .75rem; font-weight: 600; color: var(--violet2);
+  letter-spacing: .1em; margin-bottom: var(--s6);
+}
+.why-p-title {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 1.35rem; font-weight: 600; letter-spacing: -.02em;
+  color: var(--white); line-height: 1.2; margin-bottom: var(--s3);
+}
+.why-p-text {
+  font-size: .88rem; font-weight: 300; color: rgba(255,255,255,.45);
+  line-height: 1.72;
+}
+
+/* ════════════════════════════════════════════
+   NUMBERS — editorial, alternating
+════════════════════════════════════════════ */
+#numeri { background: var(--pearl2); }
+
+.num-layout {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0; align-items: stretch;
+  border: 1px solid var(--border); border-radius: 1.2rem; overflow: hidden;
+}
+
+.num-left {
+  padding: var(--s12) var(--s8);
+  border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+
+.num-statement {
+  font-family: 'Clash Display', sans-serif;
+  font-size: clamp(1.3rem, 2.5vw, 2.2rem);
+  font-weight: 600; letter-spacing: -.03em;
+  color: var(--navy); line-height: 1.2;
+  max-width: 420px;
+}
+.num-statement em {
+  font-style: normal; color: var(--violet);
+}
+
+.num-right {
+  display: grid; grid-template-rows: repeat(3,1fr);
+}
+
+.num-cell {
+  padding: var(--s6) var(--s8);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: var(--s6);
+  transition: background .2s;
+}
+.num-cell:last-child { border-bottom: none; }
+.num-cell:hover { background: rgba(92,61,143,.04); }
+
+.num-big {
+  font-family: 'Clash Display', sans-serif;
+  font-size: clamp(2.8rem, 4vw, 4rem);
+  font-weight: 700; letter-spacing: -.04em; line-height: 1;
+  background: linear-gradient(135deg, var(--violet), var(--blue2));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text; flex-shrink: 0; min-width: 110px;
+}
+.num-lbl { font-size: .9rem; font-weight: 300; color: var(--muted); line-height: 1.5; }
+
+/* ════════════════════════════════════════════
+   SECTORS — minimal text block
+════════════════════════════════════════════ */
+#settori { background: var(--navy); }
+
+.settori-inner {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: var(--s12); align-items: center;
+}
+
+.settori-quote {
+  font-family: 'Clash Display', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.8rem);
+  font-weight: 600; letter-spacing: -.03em;
+  color: var(--white); line-height: 1.15;
+}
+.settori-quote em {
+  font-style: normal; color: var(--violet2);
+}
+
+.settori-right { display: flex; flex-direction: column; gap: var(--s4); }
+
+.settori-body {
+  font-size: 1rem; font-weight: 300;
+  color: rgba(255,255,255,.45); line-height: 1.75;
+  max-width: 420px;
+}
+
+/* ════════════════════════════════════════════
+   CONTACT
+════════════════════════════════════════════ */
+#contatti { background: var(--pearl); }
+
+.contact-inner {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: var(--s12); align-items: start;
+}
+
+.contact-left {}
+.contact-h {
+  font-family: 'Clash Display', sans-serif;
+  font-size: clamp(2rem, 4vw, 3.8rem);
+  font-weight: 700; letter-spacing: -.04em; line-height: 1.0;
+  color: var(--navy); margin-bottom: var(--s4);
+}
+.contact-sub {
+  font-size: 1rem; font-weight: 300; color: var(--muted);
+  line-height: 1.72; margin-bottom: var(--s8); max-width: 400px;
+}
+
+.contact-details { display: flex; flex-direction: column; gap: var(--s4); }
+.cd { display: flex; flex-direction: column; gap: 3px; }
+.cd-label { font-size: .65rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--muted2); }
+.cd-val { font-size: .98rem; font-weight: 400; color: var(--navy); text-decoration: none; transition: color .2s; }
+.cd-val:hover { color: var(--violet); }
+
+/* form */
+.form { display: flex; flex-direction: column; gap: var(--s3); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s3); }
+.fg { display: flex; flex-direction: column; gap: 6px; }
+.fg label {
+  font-size: .65rem; font-weight: 500; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--muted2);
+}
+.fg input, .fg select, .fg textarea {
+  padding: .88rem 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: .65rem;
+  background: var(--white);
+  font-family: 'DM Sans', sans-serif; font-size: .95rem; font-weight: 300;
+  color: var(--navy); outline: none; resize: none;
+  transition: border-color .2s, box-shadow .2s;
+  -webkit-appearance: none;
+}
+.fg input:focus, .fg select:focus, .fg textarea:focus {
+  border-color: var(--violet);
+  box-shadow: 0 0 0 3px rgba(92,61,143,.08);
+}
+.fg textarea { height: 110px; }
+
+.form-chk { display: flex; gap: var(--s2); align-items: flex-start; }
+.form-chk input[type=checkbox] { margin-top: 3px; accent-color: var(--violet); flex-shrink: 0; }
+.form-chk label { font-size: .78rem; font-weight: 300; color: var(--muted); line-height: 1.6; }
+.form-chk a { color: var(--violet); text-decoration: none; }
+
+/* ════════════════════════════════════════════
+   FOOTER
+════════════════════════════════════════════ */
+footer { background: var(--navy); color: var(--white); position: relative; z-index: 1; }
+.foot-inner { max-width: var(--mw); margin: 0 auto; padding: 0 var(--s8); }
+
+.foot-top {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: var(--s8);
+  padding: var(--s12) 0 var(--s8);
+  border-bottom: 1px solid var(--border-lt);
+}
+
+/* footer logo */
+.foot-logo { display: inline-flex; align-items: center; text-decoration: none; }
+.foot-logo .logo-t { color: var(--white); }
+.foot-logo .logo-sep { background: rgba(255,255,255,.12); }
+.foot-logo .logo-stack span { color: rgba(255,255,255,.28); }
+.foot-logo .logo-stack span:first-child { color: var(--violet2); }
+.foot-logo .logo-dot { background: linear-gradient(135deg, var(--blue2), var(--violet2)); }
+
+.foot-tagline {
+  font-size: .85rem; font-weight: 300;
+  color: rgba(255,255,255,.32); margin-top: var(--s3);
+  line-height: 1.7; max-width: 220px;
+}
+
+.foot-col h4 {
+  font-size: .62rem; font-weight: 500; letter-spacing: .16em;
+  text-transform: uppercase; color: rgba(255,255,255,.22);
+  margin-bottom: var(--s3);
+}
+.foot-col ul { list-style: none; display: flex; flex-direction: column; gap: var(--s2); }
+.foot-col a {
+  font-size: .85rem; font-weight: 300;
+  color: rgba(255,255,255,.42); text-decoration: none;
+  transition: color .2s;
+}
+.foot-col a:hover { color: var(--white); }
+
+.foot-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: var(--s4) 0; flex-wrap: wrap; gap: var(--s2);
+}
+.foot-legal { font-size: .72rem; font-weight: 300; color: rgba(255,255,255,.2); }
+.foot-legal a { color: rgba(255,255,255,.28); text-decoration: none; }
+.foot-legal-links { display: flex; gap: var(--s4); }
+
+/* ════════════════════════════════════════════
+   SCROLL REVEAL
+════════════════════════════════════════════ */
+.reveal {
+  opacity: 0; transform: translateY(20px);
+  transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-d1 { transition-delay: .08s; }
+.reveal-d2 { transition-delay: .16s; }
+.reveal-d3 { transition-delay: .24s; }
+.reveal-d4 { transition-delay: .32s; }
+.reveal-d5 { transition-delay: .40s; }
+
+/* ════════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════════ */
+@media (max-width: 1100px) {
+  .wrap, .wrap-narrow, .nav-inner, .hero-content, .hero-bar, .foot-inner { padding-left: var(--s6); padding-right: var(--s6); }
+  .svc-item { grid-template-columns: 60px 1fr; }
+  .svc-desc { display: none; }
+  .why-header { grid-template-columns: 1fr; }
+  .num-layout { grid-template-columns: 1fr; }
+  .num-left { border-right: none; border-bottom: 1px solid var(--border); }
+  .num-right { grid-template-rows: auto; }
+  .settori-inner { grid-template-columns: 1fr; gap: var(--s6); }
+  .contact-inner { grid-template-columns: 1fr; gap: var(--s8); }
+  .foot-top { grid-template-columns: 1fr 1fr 1fr; gap: var(--s6); }
+}
+
+@media (max-width: 768px) {
+  :root { --s8: 1.5rem; --s12: 4rem; --s16: 5rem; }
+  .nav-links { display: none; }
+  .ham { display: flex; }
+  .svc-header { grid-template-columns: 1fr; gap: var(--s4); }
+  .svc-item { grid-template-columns: 48px 1fr; gap: var(--s2); padding: var(--s4) 0; }
+  .why-pillars { grid-template-columns: 1fr; }
+  .why-pillar { border-right: none; border-bottom: 1px solid var(--border-lt); }
+  .why-pillar:last-child { border-bottom: none; }
+  .form-row { grid-template-columns: 1fr; }
+  .foot-top { grid-template-columns: 1fr; }
+  .foot-bottom { flex-direction: column; align-items: flex-start; }
+  .hero-bar { flex-wrap: wrap; gap: var(--s4); }
+  .hero-bar-div { display: none; }
+}
+
+@media (max-width: 480px) {
+  #hero { min-height: auto; padding-top: 90px; padding-bottom: 3rem; }
+  .num-cell { flex-direction: column; align-items: flex-start; gap: var(--s1); }
+  .num-big { min-width: auto; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo" aria-label="TRIS — Retail Excellence Partner">
+      <span class="logo-t">TRIS</span>
+      <span class="logo-dot"></span>
+      <span class="logo-sep"></span>
+      <span class="logo-stack">
+        <span>Retail</span>
+        <span>Excellence</span>
+        <span>Partner</span>
+      </span>
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#servizi" data-i18n="n_svc">Servizi</a></li>
+      <li><a href="#why" data-i18n="n_why">Il nostro approccio</a></li>
+      <li><a href="#numeri" data-i18n="n_num">Chi siamo</a></li>
+      <li><a href="#contatti" class="nav-cta" data-i18n="n_cta">Contattaci</a></li>
+    </ul>
+
+    <div class="nav-r">
+      <div class="lang-tog">
+        <button class="lang-btn active" data-lang="it">IT</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <div class="ham" id="ham">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- mobile menu -->
+<div class="mob" id="mob">
+  <a href="#servizi" data-i18n="n_svc">Servizi</a>
+  <a href="#why" data-i18n="n_why">Il nostro approccio</a>
+  <a href="#numeri" data-i18n="n_num">Chi siamo</a>
+  <a href="#contatti" data-i18n="n_cta">Contattaci</a>
+</div>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-geo" aria-hidden="true"><canvas id="heroWave"></canvas></div>
+
+  <div class="hero-content">
+    <div class="hero-label reveal">
+      <span class="t-label" data-i18n="h_label">Retail Excellence Partner</span>
+    </div>
+
+    <h1 class="reveal reveal-d1">
+      <span data-i18n="h1_a">Tutto ciò che serve</span><br>
+      <span data-i18n="h1_b">per <em>vincere</em></span><br>
+      <span data-i18n="h1_c">nel retail.</span>
+    </h1>
+
+    <p class="hero-sub reveal reveal-d2" data-i18n="h_sub">
+      Strategia di canale, brand activation, field execution e retail intelligence — un unico partner.
+    </p>
+
+    <div class="hero-actions reveal reveal-d3">
+      <a href="#contatti" class="btn-primary" data-i18n="h_cta1">Costruiamo insieme</a>
+      <a href="#servizi" class="btn-ghost" data-i18n="h_cta2">Scopri i servizi</a>
+    </div>
+  </div>
+
+  <div class="hero-bar reveal reveal-d4">
+    <div class="hero-bar-item">
+      <span class="hero-bar-num">20+</span>
+      <span class="hero-bar-lbl" data-i18n="hb1">Anni di esperienza nel retail</span>
+    </div>
+    <div class="hero-bar-div"></div>
+    <div class="hero-bar-item">
+      <span class="hero-bar-num">6</span>
+      <span class="hero-bar-lbl" data-i18n="hb2">Aree di competenza integrate</span>
+    </div>
+    <div class="hero-bar-div"></div>
+    <div class="hero-bar-item">
+      <span class="hero-bar-num">50+</span>
+      <span class="hero-bar-lbl" data-i18n="hb3">Brand accompagnati</span>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<!-- ── SERVIZI ── -->
+<section id="servizi" class="sec sec-pad">
+  <div class="wrap">
+    <div class="svc-header">
+      <div>
+        <div class="sec-label reveal">
+          <span class="t-label" data-i18n="sv_label">Cosa facciamo</span>
+        </div>
+        <h2 class="sec-h2 reveal reveal-d1" data-i18n="sv_h">Sei aree di<br>competenza,<br><em>un unico partner.</em></h2>
+      </div>
+      <p class="sec-body reveal reveal-d2" data-i18n="sv_body">
+        Ogni servizio nasce da una strategia e si misura sui risultati. Possiamo lavorare su una singola area o costruire un programma integrato attorno alle tue esigenze.
+      </p>
+    </div>
+
+    <ul class="svc-list">
+      <li class="svc-item reveal">
+        <span class="svc-num">01</span>
+        <span class="svc-name" data-i18n="s1">Retail Strategy</span>
+        <span class="svc-desc" data-i18n="s1d">Strategia di canale, piano commerciale e posizionamento nel trade per massimizzare la presenza e la redditività.</span>
+      </li>
+      <li class="svc-item reveal reveal-d1">
+        <span class="svc-num">02</span>
+        <span class="svc-name" data-i18n="s2">Brand Activation</span>
+        <span class="svc-desc" data-i18n="s2d">Esperienze che portano il brand a contatto diretto con il consumatore, nei luoghi e nei momenti che contano.</span>
+      </li>
+      <li class="svc-item reveal reveal-d2">
+        <span class="svc-num">03</span>
+        <span class="svc-name" data-i18n="s3">Field Execution</span>
+        <span class="svc-desc" data-i18n="s3d">Presidio del mercato con team qualificati per tradurre ogni attività pianificata in risultati misurabili sul campo.</span>
+      </li>
+      <li class="svc-item reveal reveal-d3">
+        <span class="svc-num">04</span>
+        <span class="svc-name" data-i18n="s4">Retail Intelligence</span>
+        <span class="svc-desc" data-i18n="s4d">Audit, analisi e reportistica strutturata per monitorare le performance nel canale e supportare decisioni strategiche.</span>
+      </li>
+      <li class="svc-item reveal reveal-d4">
+        <span class="svc-num">05</span>
+        <span class="svc-name" data-i18n="s5">Category Management</span>
+        <span class="svc-desc" data-i18n="s5d">Ottimizzazione della gestione della categoria per incrementare la visibilità del brand e le performance di sell-out.</span>
+      </li>
+      <li class="svc-item reveal reveal-d5">
+        <span class="svc-num">06</span>
+        <span class="svc-name" data-i18n="s6">Events &amp; Experiences</span>
+        <span class="svc-desc" data-i18n="s6d">Progettazione e gestione di eventi, fiere e attività esperienziali che rafforzano la relazione tra brand e consumatore.</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ── WHY TRIS ── -->
+<section id="why" class="sec sec-pad">
+  <div class="wrap">
+    <div class="why-header">
+      <div>
+        <div class="sec-label why-label reveal">
+          <span class="t-label" style="color:rgba(255,255,255,.4)" data-i18n="w_label">Il nostro approccio</span>
+        </div>
+        <h2 class="sec-h2 light reveal reveal-d1" data-i18n="w_h">Tecnologia e<br>intelligenza umana<br>per la <em>retail excellence.</em></h2>
+      </div>
+      <p class="sec-body light reveal reveal-d2" data-i18n="w_body">
+        La qualità di un progetto retail si misura nella capacità di unire visione strategica, competenza delle persone e precisione dei processi. È questo che costruiamo, ogni volta.
+      </p>
+    </div>
+
+    <div class="why-pillars">
+      <div class="why-pillar reveal">
+        <div class="why-p-num">01</div>
+        <div class="why-p-title" data-i18n="w1t">Team che conoscono il mercato</div>
+        <div class="why-p-text" data-i18n="w1d">L'esperienza sul campo è insostituibile. I nostri professionisti portano conoscenza diretta del canale retail in ogni progetto, dalla strategia all'esecuzione.</div>
+      </div>
+      <div class="why-pillar reveal reveal-d1">
+        <div class="why-p-num">02</div>
+        <div class="why-p-title" data-i18n="w2t">Processi che scalano</div>
+        <div class="why-p-text" data-i18n="w2d">Strumenti digitali e metodologie strutturate che rendono ogni attività replicabile, misurabile e migliorabile — indipendentemente dalla scala del progetto.</div>
+      </div>
+      <div class="why-pillar reveal reveal-d2">
+        <div class="why-p-num">03</div>
+        <div class="why-p-title" data-i18n="w3t">Insight che guidano le scelte</div>
+        <div class="why-p-text" data-i18n="w3d">Dati di campo, analisi e reportistica trasformati in decisioni strategiche concrete. Non misuriamo per dovere: misuriamo per migliorare continuamente.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── NUMERI ── -->
+<section id="numeri" class="sec sec-pad">
+  <div class="wrap">
+    <div class="num-layout reveal">
+      <div class="num-left">
+        <div>
+          <div class="sec-label reveal" style="margin-bottom:var(--s4)">
+            <span class="t-label" data-i18n="nm_label">Chi siamo</span>
+          </div>
+          <p class="num-statement reveal reveal-d1" data-i18n="nm_statement">
+            Vent'anni di retail italiano. <em>Un approccio che non smette di evolvere.</em>
+          </p>
+        </div>
+        <p class="sec-body reveal reveal-d2" style="margin-top:var(--s8)" data-i18n="nm_body">
+          Dalla strategia di ingresso nel canale alla misurazione delle performance, costruiamo programmi retail su misura — con metodo, continuità e un approccio che integra competenza umana e strumenti digitali.
+        </p>
+      </div>
+      <div class="num-right">
+        <div class="num-cell reveal">
+          <span class="num-big">20+</span>
+          <span class="num-lbl" data-i18n="n1">anni di esperienza nel retail italiano</span>
+        </div>
+        <div class="num-cell reveal reveal-d1">
+          <span class="num-big">6</span>
+          <span class="num-lbl" data-i18n="n2">aree di competenza integrate in un unico partner</span>
+        </div>
+        <div class="num-cell reveal reveal-d2">
+          <span class="num-big">50+</span>
+          <span class="num-lbl" data-i18n="n3">brand accompagnati nella crescita retail</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SETTORI ── -->
+<section id="settori" class="sec sec-pad">
+  <div class="wrap">
+    <div class="settori-inner">
+      <p class="settori-quote reveal" data-i18n="se_q">
+        Lavoriamo con brand di ogni categoria che vogliono costruire una presenza retail <em>eccellente.</em>
+      </p>
+      <div class="settori-right">
+        <div class="sec-label why-label reveal">
+          <span class="t-label" style="color:rgba(255,255,255,.4)" data-i18n="se_label">Il nostro perimetro</span>
+        </div>
+        <p class="settori-body reveal reveal-d1" data-i18n="se_body">
+          Dalla grande distribuzione organizzata ai canali specializzati, dalla farmacia all'elettronica di consumo. Ogni categoria retail ha le sue dinamiche — e noi le conosciamo.
+        </p>
+        <a href="#contatti" class="btn-primary reveal reveal-d2" style="width:fit-content;margin-top:var(--s2)" data-i18n="se_cta">Parliamo del tuo mercato</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTATTI ── -->
+<section id="contatti" class="sec sec-pad">
+  <div class="wrap">
+    <div class="contact-inner">
+      <div class="contact-left">
+        <h2 class="contact-h reveal" data-i18n="co_h">Costruiamo<br>insieme la tua<br>strategia retail.</h2>
+        <p class="contact-sub reveal reveal-d1" data-i18n="co_sub">Parlaci del tuo brand e dei tuoi obiettivi. Ti risponderemo entro 24 ore.</p>
+        <div class="contact-details reveal reveal-d2">
+          <div class="cd">
+            <span class="cd-label" data-i18n="co_tel">Telefono</span>
+            <a href="tel:+390437358308" class="cd-val">0437 358308</a>
+          </div>
+          <div class="cd">
+            <span class="cd-label">Email</span>
+            <a href="mailto:info@tris.it" class="cd-val">info@tris.it</a>
+          </div>
+          <div class="cd">
+            <span class="cd-label" data-i18n="co_sede">Sede</span>
+            <span class="cd-val">Sedico (BL) &amp; Como (CO)</span>
+          </div>
+        </div>
+      </div>
+
+      <form class="form reveal reveal-d1" onsubmit="handleSubmit(event)" novalidate>
+        <div class="form-row">
+          <div class="fg">
+            <label data-i18n="f_name">Nome e Cognome</label>
+            <input type="text" required autocomplete="name">
+          </div>
+          <div class="fg">
+            <label data-i18n="f_comp">Azienda</label>
+            <input type="text" autocomplete="organization">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="fg">
+            <label>Email</label>
+            <input type="email" required autocomplete="email">
+          </div>
+          <div class="fg">
+            <label data-i18n="f_tel">Telefono</label>
+            <input type="tel" autocomplete="tel">
+          </div>
+        </div>
+        <div class="fg">
+          <label data-i18n="f_svc">Area di interesse</label>
+          <select>
+            <option value="" data-i18n="f_sel">Seleziona</option>
+            <option>Retail Strategy</option>
+            <option>Brand Activation</option>
+            <option>Field Execution</option>
+            <option>Retail Intelligence</option>
+            <option>Category Management</option>
+            <option>Events &amp; Experiences</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label data-i18n="f_msg">Messaggio</label>
+          <textarea></textarea>
+        </div>
+        <div class="form-chk">
+          <input type="checkbox" id="prv" required>
+          <label for="prv" data-i18n="f_prv">Ho letto e accetto l'<a href="#">informativa sulla privacy</a> e acconsento al trattamento dei dati personali (GDPR).</label>
+        </div>
+        <button type="submit" class="btn-primary"
+          style="border:none;cursor:pointer;font-family:'DM Sans',sans-serif;width:100%;justify-content:center;"
+          data-i18n="f_send">Invia richiesta</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div>
+        <a href="#" class="foot-logo" aria-label="TRIS">
+          <span class="logo-t">TRIS</span>
+          <span class="logo-dot"></span>
+          <span class="logo-sep"></span>
+          <span class="logo-stack">
+            <span>Retail</span>
+            <span>Excellence</span>
+            <span>Partner</span>
+          </span>
+        </a>
+        <p class="foot-tagline" data-i18n="ft_tag">Retail Excellence Partner. Strategia, attivazione e performance per i brand che vogliono crescere nel canale retail.</p>
+      </div>
+      <div class="foot-col">
+        <h4 data-i18n="ft_svc">Servizi</h4>
+        <ul>
+          <li><a href="#">Retail Strategy</a></li>
+          <li><a href="#">Brand Activation</a></li>
+          <li><a href="#">Field Execution</a></li>
+          <li><a href="#">Retail Intelligence</a></li>
+          <li><a href="#">Category Management</a></li>
+          <li><a href="#">Events &amp; Experiences</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4 data-i18n="ft_co">Azienda</h4>
+        <ul>
+          <li><a href="#why" data-i18n="n_why">Il nostro approccio</a></li>
+          <li><a href="#numeri" data-i18n="n_num">Chi siamo</a></li>
+          <li><a href="#contatti" data-i18n="ft_work">Lavora con noi</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4 data-i18n="ft_cnt">Contatti</h4>
+        <ul>
+          <li><a href="tel:+390437358308">0437 358308</a></li>
+          <li><a href="mailto:info@tris.it">info@tris.it</a></li>
+          <li><a href="#">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4 data-i18n="ft_sedi">Sedi</h4>
+        <ul>
+          <li><span style="color:rgba(255,255,255,.42);font-size:.85rem;font-weight:300">Sedico (BL)</span></li>
+          <li><span style="color:rgba(255,255,255,.42);font-size:.85rem;font-weight:300">Como (CO)</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p class="foot-legal">© 2025 TRIS srl — P.IVA 01088830250 — Sedico (BL) &amp; Como (CO)</p>
+      <div class="foot-legal-links">
+        <a class="foot-legal" href="#" data-i18n="ft_pp">Privacy Policy</a>
+        <a class="foot-legal" href="#" data-i18n="ft_ck">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── I18N ── */
+const T = {
+  it: {
+    n_svc:'Servizi', n_why:'Il nostro approccio', n_num:'Chi siamo', n_cta:'Contattaci',
+    h_label:'Retail Excellence Partner',
+    h1_a:'Tutto ciò che serve', h1_b:'per vincere', h1_c:'nel retail.',
+    h_sub:'Strategia di canale, brand activation, field execution e retail intelligence — un unico partner.',
+    h_cta1:'Costruiamo insieme', h_cta2:'Scopri i servizi',
+    hb1:'Anni di esperienza nel retail', hb2:'Aree di competenza integrate', hb3:'Brand accompagnati',
+    sv_label:'Cosa facciamo',
+    sv_h:'Sei aree di competenza, un unico partner.',
+    sv_body:'Ogni servizio nasce da una strategia e si misura sui risultati. Possiamo lavorare su una singola area o costruire un programma integrato attorno alle tue esigenze.',
+    s1:'Retail Strategy', s1d:'Strategia di canale, piano commerciale e posizionamento nel trade per massimizzare la presenza e la redditività.',
+    s2:'Brand Activation', s2d:'Esperienze che portano il brand a contatto diretto con il consumatore, nei luoghi e nei momenti che contano.',
+    s3:'Field Execution', s3d:'Presidio del mercato con team qualificati per tradurre ogni attività pianificata in risultati misurabili sul campo.',
+    s4:'Retail Intelligence', s4d:'Audit, analisi e reportistica strutturata per monitorare le performance nel canale e supportare decisioni strategiche.',
+    s5:'Category Management', s5d:'Ottimizzazione della gestione della categoria per incrementare la visibilità del brand e le performance di sell-out.',
+    s6:'Events & Experiences', s6d:'Progettazione e gestione di eventi, fiere e attività esperienziali che rafforzano la relazione tra brand e consumatore.',
+    w_label:'Il nostro approccio',
+    w_h:'Tecnologia e intelligenza umana per la retail excellence.',
+    w_body:'La qualità di un progetto retail si misura nella capacità di unire visione strategica, competenza delle persone e precisione dei processi. È questo che costruiamo, ogni volta.',
+    w1t:'Team che conoscono il mercato', w1d:'L\'esperienza sul campo è insostituibile. I nostri professionisti portano conoscenza diretta del canale retail in ogni progetto, dalla strategia all\'esecuzione.',
+    w2t:'Processi che scalano', w2d:'Strumenti digitali e metodologie strutturate che rendono ogni attività replicabile, misurabile e migliorabile — indipendentemente dalla scala del progetto.',
+    w3t:'Insight che guidano le scelte', w3d:'Dati di campo, analisi e reportistica trasformati in decisioni strategiche concrete. Non misuriamo per dovere: misuriamo per migliorare continuamente.',
+    nm_label:'Chi siamo',
+    nm_statement:'Vent\'anni di retail italiano. Un approccio che non smette di evolvere.',
+    nm_body:'Dalla strategia di ingresso nel canale alla misurazione delle performance, costruiamo programmi retail su misura — con metodo, continuità e un approccio che integra competenza umana e strumenti digitali.',
+    n1:'anni di esperienza nel retail italiano',
+    n2:'aree di competenza integrate in un unico partner',
+    n3:'brand accompagnati nella crescita retail',
+    se_label:'Il nostro perimetro',
+    se_q:'Lavoriamo con brand di ogni categoria che vogliono costruire una presenza retail eccellente.',
+    se_body:'Dalla grande distribuzione organizzata ai canali specializzati, dalla farmacia all\'elettronica di consumo. Ogni categoria retail ha le sue dinamiche — e noi le conosciamo.',
+    se_cta:'Parliamo del tuo mercato',
+    co_h:'Costruiamo insieme la tua strategia retail.',
+    co_sub:'Parlaci del tuo brand e dei tuoi obiettivi. Ti risponderemo entro 24 ore.',
+    co_tel:'Telefono', co_sede:'Sedi',
+    f_name:'Nome e Cognome', f_comp:'Azienda', f_tel:'Telefono',
+    f_svc:'Area di interesse', f_sel:'Seleziona',
+    f_msg:'Messaggio',
+    f_prv:'Ho letto e accetto l\'<a href="#">informativa sulla privacy</a> e acconsento al trattamento dei dati personali (GDPR).',
+    f_send:'Invia richiesta',
+    ft_tag:'Retail Excellence Partner — Strategia, attivazione e performance per i brand che vogliono crescere nel canale retail.',
+    ft_svc:'Servizi', ft_co:'Azienda', ft_cnt:'Contatti', ft_sedi:'Sedi',
+    ft_work:'Lavora con noi', ft_pp:'Privacy Policy', ft_ck:'Cookie Policy'
+  },
+  en: {
+    n_svc:'Services', n_why:'Our approach', n_num:'About', n_cta:'Contact us',
+    h_label:'Retail Excellence Partner',
+    h1_a:'Everything it takes', h1_b:'to win', h1_c:'in retail.',
+    h_sub:'Channel strategy, brand activation, field execution and retail intelligence — one partner.',
+    h_cta1:'Let\'s build together', h_cta2:'Explore services',
+    hb1:'Years of retail experience', hb2:'Integrated areas of expertise', hb3:'Brands supported',
+    sv_label:'What we do',
+    sv_h:'Six areas of expertise, one partner.',
+    sv_body:'Every service starts with a strategy and is measured on results. We can work on a single area or build an integrated programme around your needs.',
+    s1:'Retail Strategy', s1d:'Channel strategy, commercial plan and trade positioning to maximise presence and profitability.',
+    s2:'Brand Activation', s2d:'Experiences that bring the brand into direct contact with the consumer, in the right places at the right moments.',
+    s3:'Field Execution', s3d:'Market coverage with qualified teams to translate every planned activity into measurable results on the ground.',
+    s4:'Retail Intelligence', s4d:'Audits, analysis and structured reporting to monitor channel performance and support strategic decisions.',
+    s5:'Category Management', s5d:'Category optimisation to increase brand visibility and improve sell-out performance.',
+    s6:'Events & Experiences', s6d:'Design and management of events, trade fairs and experiential activities that strengthen the brand-consumer relationship.',
+    w_label:'Our approach',
+    w_h:'Technology and human intelligence for retail excellence.',
+    w_body:'The quality of a retail project is measured by the ability to combine strategic vision, people\'s expertise and process precision. That\'s what we build, every time.',
+    w1t:'Teams that know the market', w1d:'Field experience is irreplaceable. Our professionals bring direct knowledge of the retail channel to every project, from strategy to execution.',
+    w2t:'Processes that scale', w2d:'Digital tools and structured methodologies that make every activity replicable, measurable and improvable — regardless of project scale.',
+    w3t:'Insights that drive decisions', w3d:'Field data, analysis and reporting transformed into concrete strategic decisions. We don\'t measure out of duty: we measure to continuously improve.',
+    nm_label:'About',
+    nm_statement:'Twenty years of Italian retail. An approach that never stops evolving.',
+    nm_body:'From channel entry strategy to performance measurement, we build tailored retail programmes — with method, continuity and an approach that integrates human expertise and digital tools.',
+    n1:'years of experience in Italian retail',
+    n2:'integrated areas of expertise in one partner',
+    n3:'brands supported in retail growth',
+    se_label:'Our scope',
+    se_q:'We work with brands of every category that want to build an excellent retail presence.',
+    se_body:'From mass retail to specialist channels, from pharmacy to consumer electronics. Every retail category has its own dynamics — and we know them.',
+    se_cta:'Let\'s talk about your market',
+    co_h:'Let\'s build your retail strategy together.',
+    co_sub:'Tell us about your brand and your objectives. We\'ll reply within 24 hours.',
+    co_tel:'Phone', co_sede:'Offices',
+    f_name:'Full Name', f_comp:'Company', f_tel:'Phone',
+    f_svc:'Area of interest', f_sel:'Select',
+    f_msg:'Message',
+    f_prv:'I have read and accept the <a href="#">privacy policy</a> and consent to personal data processing (GDPR).',
+    f_send:'Send request',
+    ft_tag:'Retail Excellence Partner — Strategy, activation and performance for brands that want to grow in retail.',
+    ft_svc:'Services', ft_co:'Company', ft_cnt:'Contact', ft_sedi:'Offices',
+    ft_work:'Work with us', ft_pp:'Privacy Policy', ft_ck:'Cookie Policy'
+  }
+};
+
+let lang = 'it';
+
+
+function applyLang(l) {
+  lang = l;
+  const t = T[l];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.getAttribute('data-i18n');
+    if (t[k] !== undefined) el.innerHTML = t[k];
+  });
+  document.documentElement.lang = l;
+}
+
+/* lang toggle */
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    applyLang(btn.dataset.lang);
+  });
+});
+
+/* hamburger */
+const ham = document.getElementById('ham');
+const mob = document.getElementById('mob');
+ham.addEventListener('click', () => {
+  mob.classList.toggle('open');
+  const s = ham.querySelectorAll('span');
+  if (mob.classList.contains('open')) {
+    s[0].style.transform = 'rotate(45deg) translate(5px,5px)';
+    s[1].style.opacity = '0';
+    s[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
+  } else {
+    s.forEach(x => { x.style.transform = ''; x.style.opacity = ''; });
+  }
+});
+mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  mob.classList.remove('open');
+  ham.querySelectorAll('span').forEach(x => { x.style.transform = ''; x.style.opacity = ''; });
+}));
+
+/* scroll reveal */
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: .08 });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+/* form */
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('[type=submit]');
+  const orig = btn.innerHTML;
+  btn.innerHTML = lang === 'it' ? '✓ Ricevuto — ti risponderemo presto' : '✓ Received — we\'ll be in touch';
+  btn.style.background = '#1A6A40';
+  setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; }, 3500);
+}
+
+
+/* ── HERO WAVE BACKGROUND ── */
+(function(){
+  const cv = document.getElementById('heroWave');
+  if(!cv) return;
+  const ctx = cv.getContext('2d');
+  let W, H, raf, t = 0;
+
+  function resize(){
+    const pr = window.devicePixelRatio||1;
+    W = cv.clientWidth*pr;
+    H = cv.clientHeight*pr;
+    cv.width=W; cv.height=H;
+  }
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    const pr = window.devicePixelRatio||1;
+    const w=W/pr, h=H/pr;
+
+    const LINES = 16;
+
+    for(let i=0; i<LINES; i++){
+      const prog  = i/LINES;
+      /* spread lines evenly across full height */
+      const y0    = prog * h * 1.3 - h * 0.15;
+      /* bigger amplitude = more sinuous */
+      const amp   = 32 + i * 3.8 + Math.sin(t*0.25 + i*0.6)*6;
+      /* lower frequency = longer, lazier curves */
+      const freq  = 0.0042 + i*0.00012;
+      const phase = i*0.72 + t*(0.055 + i*0.002);
+      /* second harmonic very subtle — keeps it smooth not choppy */
+      const amp2  = amp * 0.18;
+      const freq2 = freq * 1.9;
+
+      const alpha = 0.07 + prog*0.18;
+      const lw    = 1.2 + prog*2.2;
+
+      /* gradient: invisible on left 30%, builds toward right */
+      const grad = ctx.createLinearGradient(0,0,W,0);
+      grad.addColorStop(0,    `rgba(92,61,143,0)`);
+      grad.addColorStop(0.12, `rgba(92,61,143,${alpha*0.3})`);
+      grad.addColorStop(0.38, `rgba(92,61,143,${alpha*0.75})`);
+      grad.addColorStop(1,    `rgba(92,61,143,${alpha})`);
+
+      ctx.beginPath();
+      const step = window.innerWidth < 768 ? 4 : 2;
+      for(let x=0; x<=w; x+=step){
+        const y = y0
+          + Math.sin(x*freq  + phase)*amp
+          + Math.sin(x*freq2 + phase*1.15)*amp2;
+        x===0 ? ctx.moveTo(x*pr, y*pr) : ctx.lineTo(x*pr, y*pr);
+      }
+      ctx.strokeStyle = grad;
+      ctx.lineWidth   = lw*pr;
+      ctx.lineJoin    = 'round';
+      ctx.stroke();
+    }
+
+    /* 3 hero accent waves — larger, right two-thirds only */
+    const accents = [
+      {y:.22, amp:52, freq:.0038, alpha:.28, lw:2.2},
+      {y:.50, amp:60, freq:.0032, alpha:.22, lw:2.0},
+      {y:.76, amp:44, freq:.0044, alpha:.25, lw:1.8},
+    ];
+    accents.forEach((a,i)=>{
+      const y0 = a.y*h;
+      const phase = i*2.1 + t*(0.06+i*0.008);
+      const grad2 = ctx.createLinearGradient(0,0,W,0);
+      grad2.addColorStop(0,    `rgba(92,61,143,0)`);
+      grad2.addColorStop(0.15, `rgba(92,61,143,${a.alpha*0.4})`);
+      grad2.addColorStop(0.40, `rgba(92,61,143,${a.alpha*0.8})`);
+      grad2.addColorStop(1,    `rgba(92,61,143,${a.alpha})`);
+
+      ctx.beginPath();
+      const step = window.innerWidth < 768 ? 4 : 2;
+      for(let x=0; x<=w; x+=step){
+        const y = y0
+          + Math.sin(x*a.freq + phase)*a.amp
+          + Math.sin(x*a.freq*1.7 + phase*1.1)*a.amp*.15;
+        x===0 ? ctx.moveTo(x*pr, y*pr) : ctx.lineTo(x*pr, y*pr);
+      }
+      ctx.strokeStyle = grad2;
+      ctx.lineWidth   = a.lw*pr;
+      ctx.lineJoin    = 'round';
+      ctx.stroke();
+    });
+
+    t += 0.008;
+    raf = requestAnimationFrame(draw);
+  }
+
+  function init(){
+    resize();
+    if(raf) cancelAnimationFrame(raf);
+    draw();
+  }
+
+  window.addEventListener('resize', init);
+  init();
+})();
+/* init */
+applyLang('it');
+</script>
+</body>
+</html>
